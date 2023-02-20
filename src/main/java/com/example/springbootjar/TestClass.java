@@ -17,6 +17,10 @@ public class TestClass {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TestClass.class);
 
+    /**
+     * 打印日志
+     * 使用logback 模拟调用第三方jar包的方法
+     */
     public void log() {
         ZonedDateTime zonedDateTime = ZonedDateTime.now();
         LOGGER.info("now: {}", zonedDateTime);

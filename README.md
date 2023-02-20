@@ -35,11 +35,82 @@
 
 然后就可以在指定的启动类的main方法中写自己的代码了。
 
+eg.
+
+com.example.springbootjar.SpringBootJar
+
+```java
+package com.example.springbootjar;
+// 启动类
+public class SpringBootJar {
+
+    /**
+     * 入口函数
+     *
+     * @param args 参数
+     */
+    public static void main(String[] args) {
+        System.out.println("hello SpringBootJar!");
+        TestClass testClass = new TestClass();
+        testClass.log();
+    }
+
+}
+
+```
+
+
+
+```java
+package com.example.springbootjar;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.time.ZonedDateTime;
+// 测试类
+public class TestClass {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(TestClass.class);
+
+    /**
+     * 打印日志
+     * 使用logback 模拟调用第三方jar包的方法
+     */
+    public void log() {
+        ZonedDateTime zonedDateTime = ZonedDateTime.now();
+        LOGGER.info("now: {}", zonedDateTime);
+
+    }
+}
+
+```
+
+
+
+执行结果：
+
+```shell
+# 打包
+$ mvn clean package
+# 执行
+$ java -jar target/SpringBootJar.jar
+hello SpringBootJar!
+2023-02-21T00:01:24.397 CST+08:00 [main] INFO  com.example.springbootjar.TestClass:26 - now: 2023-02-21T00:01:24.394+08:00[Asia/Shanghai]
+
+```
+
+
+
+
+
 常用的场景：
 
 - 验证linux下执行效果
 - 获取linux环境的信息
 - 调用linux下命令行执行
+- http请求
+- ...
 
 
 

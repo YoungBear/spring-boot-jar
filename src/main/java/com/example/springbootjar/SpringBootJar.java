@@ -16,7 +16,7 @@ public class SpringBootJar {
      * @param args 参数
      */
     public static void main(String[] args) {
-        System.out.println("hello start");
+        System.out.println("hello SpringBootJar!");
         TestClass testClass = new TestClass();
         testClass.log();
     }
